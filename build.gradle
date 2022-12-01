@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.conserveit.aoc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.testng', name: 'testng', version: '7.6.1'
+    testRuntimeOnly group: 'org.testng', name: 'testng', version: '7.6.1'
+}
+
+test {
+    useTestNG() {
+        testLogging.showStandardStreams = true
+    }
+}
