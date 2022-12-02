@@ -1,5 +1,7 @@
 package com.conserveit.aoc;
 
+import com.conserveit.aoc.day1.FoodItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +17,9 @@ public class ElfModel
      * @param name
      * @param unit
      */
-    public ElfModel(List<Integer>caloriesCarried, String name, String unit)
+    public ElfModel(List<FoodItem> foodItems, String name, String unit)
     {
-        this.caloriesCarried = caloriesCarried;
+        this.foodItems = foodItems;
         this.name = name;
         this.unit = unit;
     }
@@ -27,9 +29,9 @@ public class ElfModel
      *
      * @return the list of food with calories
      */
-    public List<Integer> getCaloriesCarried()
+    public List<FoodItem> getCaloriesCarried()
     {
-        return caloriesCarried;
+        return foodItems;
     }
 
     /**
@@ -40,7 +42,10 @@ public class ElfModel
      */
     public Integer getTotalEnergy()
     {
-        Integer sum = caloriesCarried.stream().reduce(0, Integer::sum);
+        Integer sum = foodItems
+                .stream()
+                .reduce(0, (part, item) -> part + item.getEnergy(), Integer::sum);
+
         return sum;
     }
 
@@ -69,7 +74,7 @@ public class ElfModel
         return output.toString();
     }
 
-    private List<Integer> caloriesCarried = new ArrayList<>();
+    private List<FoodItem> foodItems = new ArrayList<>();
     private String unit;
     private String name;
 }

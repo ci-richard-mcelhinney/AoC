@@ -1,8 +1,11 @@
 package com.conserveit.aoc;
 
+import com.conserveit.aoc.day1.ElfFactory;
 import org.testng.annotations.*;
 import org.testng.*;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
 import java.util.*;
 
 @Test
@@ -11,32 +14,38 @@ public class ElfModelTest
     @Test
     public void findElfWithMostFood()
     {
-        List<Integer> elf1Cals = Arrays.asList(1000, 2000, 3000);
-        ElfModel elf1 = new ElfModel(elf1Cals, "Elf1", "cal");
+        StringReader rdr = new StringReader(testData.toString());
+        BufferedReader buf = new BufferedReader(rdr);
 
-        List<Integer> elf2Cals = Arrays.asList(4000);
-        ElfModel elf2 = new ElfModel(elf2Cals, "Elf2", "cal");
+        try
+        {
+            List<ElfModel> elves = ElfFactory.createElves(buf);
+            Collections.sort(elves, new ElfSorter());
+            Collections.reverse(elves);
 
-        List<Integer> elf3Cals = Arrays.asList(5000, 6000);
-        ElfModel elf3 = new ElfModel(elf3Cals, "Elf3", "cal");
+            System.out.println(elves.get(0).getName() + " has the most food\n\n");
 
-        List<Integer> elf4Cals = Arrays.asList(7000, 8000, 9000);
-        ElfModel elf4 = new ElfModel(elf4Cals, "Elf4", "cal");
-
-        List<Integer> elf5Cals = Arrays.asList(10000);
-        ElfModel elf5 = new ElfModel(elf5Cals, "Elf5", "cal");
-
-        ArrayList<ElfModel> elves = new ArrayList<>();
-        elves.add(elf1);
-        elves.add(elf2);
-        elves.add(elf3);
-        elves.add(elf4);
-        elves.add(elf5);
-        Collections.sort(elves, new ElfSorter());
-        Collections.reverse(elves);
-
-        System.out.println(elves.get(0).getName() + " has the most food\n\n");
-
-        elves.forEach(e -> System.out.println(e.toString()));
+            elves.forEach(e -> System.out.println(e.toString()));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
+
+    private StringBuffer testData = new StringBuffer()
+    .append(1000).append('\n')
+    .append(2000).append('\n')
+    .append(3000).append('\n')
+    .append('\n')
+    .append(4000).append('\n')
+    .append('\n')
+    .append(5000).append('\n')
+    .append(6000).append('\n')
+    .append('\n')
+    .append(7000).append('\n')
+    .append(8000).append('\n')
+    .append(9000).append('\n')
+    .append('\n')
+    .append(10000).append('\n');
 }
