@@ -33,6 +33,17 @@ public class ElfModelTest
             System.out.println(elves.get(0).getName() + " has the most food\n\n");
 
             elves.forEach(e -> System.out.println(e.toString()));
+
+            List<ElfModel> topThreeFoodCarriers = elves.subList(0, 3);
+
+            int topThreeTotalCalories = 0;
+            for (ElfModel elf : topThreeFoodCarriers)
+            {
+                topThreeTotalCalories += elf.getTotalEnergy();
+            }
+
+            System.out.println("The top 3 elves are carrying " + topThreeTotalCalories + " calories");
+
         }
         catch(Exception e)
         {
