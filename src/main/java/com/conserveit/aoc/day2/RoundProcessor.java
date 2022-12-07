@@ -3,7 +3,6 @@ package com.conserveit.aoc.day2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 import static com.conserveit.aoc.day2.GameInput.*;
 
@@ -18,7 +17,7 @@ public class RoundProcessor
         this.myTotalScore = 0;
     }
 
-    public void process() throws IOException
+    public void processPart1() throws IOException
     {
         ArrayList<GameRound> rounds = new ArrayList<>();
         String line;
@@ -39,6 +38,29 @@ public class RoundProcessor
                 .reduce(0, (part, round) -> part + round.calcMyScore(), Integer::sum);
     }
 
+    public void processPart2() throws IOException
+    {
+        ArrayList<GameRound> rounds = new ArrayList<>();
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null)
+        {
+            char them = line.charAt(0);
+            char me = line.charAt(2);
+
+            GameInput theirInput = convert(them);
+            GameInput myInput = translate(me, theirInput);
+
+
+            GameRound round = new GameRound(theirInput, myInput);
+            rounds.add(round);
+        }
+
+        myTotalScore = rounds
+                .stream()
+                .reduce(0, (part, round) -> part + round.calcMyScore(), Integer::sum);
+    }
+
     public GameInput convert(char input)
     {
         if      (input == 'A' || input == 'X') return ROCK;
@@ -46,6 +68,16 @@ public class RoundProcessor
         else if (input == 'C' || input == 'Z') return SCISSORS;
 
         return null;
+    }
+
+    public GameInput translate(char input, GameInput theirs)
+    {
+        Recommendation todo = Recommendation.DEFAULT;
+        if      (input == 'X') todo = Recommendation.LOSE;
+        else if (input == 'Y') todo = Recommendation.DRAW;
+        else if (input == 'Z') todo = Recommendation.WIN;
+
+        return todo.getMyGameInput(theirs);
     }
 
     public Integer getMyTotalScore()

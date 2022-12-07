@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="357257f4-df58-4508-88b1-686db41a1aba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/GameInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/GameRound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/RoundProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/conserveit/aoc/day2/RPSTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/day2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/Recommendation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/GameInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/GameInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/RoundProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/conserveit/aoc/day2/RoundProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/conserveit/aoc/day2/RPSTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/conserveit/aoc/day2/RPSTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +49,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -70,14 +69,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.30574712",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.30574712&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.AoC [dependencies]">
     <configuration name="AoC [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>

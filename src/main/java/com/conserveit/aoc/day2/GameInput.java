@@ -4,7 +4,9 @@ public enum GameInput
 {
     ROCK('A', 'X'),
     PAPER('B', 'Y'),
-    SCISSORS('C', 'Z');
+    SCISSORS('C', 'Z'),
+
+    DEFAULT(-1, -1);
 
 
     GameInput(int valA, int valB)
